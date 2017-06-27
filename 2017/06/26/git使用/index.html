@@ -1,0 +1,87 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="Jennifer Hao"><title>git使用 · Jennifer的半亩三分田</title><meta name="description" content="使用git之前，先初始化一下设置：先设置一下用户名和email：
+
+git config –global user.name “你的英文名”
+git config –global user.email “你的邮箱”
+git config –global color.ui true
+git confi"><meta name="keywords"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"></head><body><div class="sidebar animated fadeInDown"><div class="logo-title"><div class="title"><img src="/images/logo@2x.png" style="width:127px;"><h3 title=""><a href="/">Jennifer的半亩三分田</a></h3></div></div><ul class="social-links"></ul><div class="footer"><a target="_blank" href="/"><span>Theme by </span></a><a href="https://www.caicai.me"> CaiCai </a><span>&</span><a href="https://github.com/Ben02/hexo-theme-Anatole"> Ben</a><div class="by_farbox"><a href="https://hexo.io/zh-cn/" target="_blank">Proudly published with Hexo&#65281;</a></div></div></div><div class="main"><div class="page-top animated fadeInDown"><div class="nav"><li><a href="/">首页</a></li><li><a href="/about">关于</a></li><li><a href="/archives">归档</a></li><li><a href="/links">友链</a></li></div><div class="information"><div class="back_btn"><li><a onclick="window.history.go(-1)" class="fa fa-chevron-left"> </a></li></div><div class="avatar"><img></div></div></div><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>git使用</a></h3></div><div class="post-content"><p>使用git之前，先初始化一下设置：<br>先设置一下用户名和email：</p>
+<ul>
+<li>git config –global user.name “你的英文名”</li>
+<li>git config –global user.email “你的邮箱”</li>
+<li>git config –global color.ui true</li>
+<li>git config –global push.default simple</li>
+</ul>
+<p>git连接外网的设置： &gt; git config –global http.proxy <a href="http://10.12.16.16:808" target="_blank" rel="external">http://10.12.16.16:808</a></p>
+<p>git服务器地址中，大家可以将git.sinosoft.com换成10.12.6.73，或者在C:\Windows\System32\Drivers\etc\hosts文件中加入 10.12.6.73 git.sinosoft.com一行。</p>
+<ul>
+<li>git push<ul>
+<li>git push -u presandbox fa_tusi_back 向远端推送并关联本地分支</li>
+<li>git push origin :issue1 删除远程的issue1分支</li>
+</ul>
+</li>
+<li>git reset –hard ba19ee1ec4797e360fe8374c5c5885c55b2f4c49 将当前分支回退到ba19ee1ec4797e360fe8374c5c5885c55b2f4c49 </li>
+<li>git commit -m “closes #33”提交并关闭issue33</li>
+<li>git diff 9ba1de2cd90e84142724018ce1c086fe31100ea8^ – project/cms-mix/1.x/js/live/page.js 查看某次提交修复了什么文件</li>
+<li>git status<ul>
+<li>git status -sb查看当前分支关联，并显示关联的远程分支</li>
+</ul>
+</li>
+<li>git branch<ul>
+<li>git branch -v 查看各个分支最后一次commit 信息</li>
+<li>git branch –merge 查看哪些分支已被并入当前分支<ul>
+<li>一般来说，列表中没有* 的分支通常都可以用git branch -d 来删掉。原因很简单，既然已经把它们所包含的工作整合到了其他分支，删掉也不会损失什么。</li>
+</ul>
+</li>
+<li>git branch –no-merged 查看尚未合并的工作</li>
+<li>git branch -d branch-name 删除分支名称为branch-name的分支 </li>
+<li>git branch -r 查看远程分支</li>
+<li>git branch -a | grep nitpick 过滤分支</li>
+<li>git branch -rm 旧分支名 新分支名 分支改名</li>
+</ul>
+</li>
+<li>git cherry-pick xxxxx  合并某一次提交到当前分支</li>
+<li>git checkout <ul>
+<li>git checkout -b [name] 创建新分支并立即切换到新分支</li>
+<li>git checkout presandbox/fa_nitpick -b fa_nitpick 基于远程分支去创建本地分支，且关联，并切换到新分支<ul>
+<li>git checkout origin/master -b fa_aaa</li>
+<li>git checkout -b test 67668d5基于某次提交创建新分支</li>
+</ul>
+</li>
+<li>git checkout baike – project/baike/1.x/css/common/right  检出bike分支下相关内容到本分支，便于参考</li>
+</ul>
+</li>
+<li>git remote 远程仓库相关命令<ul>
+<li>git remote -v 查看远程仓库</li>
+<li>git remote add [name] [url] 添加远程仓库</li>
+<li>git remote rm [name] 删除远程仓库</li>
+<li>git pull [remoteName] [localBranchName] 拉取远程仓库</li>
+<li>git push [remoteName] [localBranchName] 推送远程仓库</li>
+<li>git remote set-url –push [remote-name] [newUrl]  修改远程仓库<ul>
+<li>比如git remote set-url –push origin git@ued.dajie.com:ued/presandbox.git</li>
+</ul>
+</li>
+<li>备注<ul>
+<li>如果想把本地的某个分支test提交到远程仓库，并作为远程仓库的master分支，或者作为另外一个名叫test的分支，如下：</li>
+<li>git push origin test:master         // 提交本地test分支作为远程的master分支</li>
+<li>git push origin test:test              // 提交本地test分支作为远程的test分支 </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>重命名本地分支  git branch -rm 旧分支名 新分支名</li>
+<li>从某个tag检出分支  git checkout -b branch_name tag_name</li>
+<li>push模式（必须添加）<ul>
+<li>git config –global push.default simple</li>
+</ul>
+</li>
+<li>git方法简写<ul>
+<li>git config –global alias.ci commit</li>
+<li>git config –global alias.co checkout</li>
+<li>git config –global alias.br branch</li>
+<li>git config –global alias.st status</li>
+<li>git config –global alias.dom “diff origin/master –name-only” #查看当前分支基于主干改了那些文件</li>
+<li>git config –global alias.pom “pull origin master” #拉取主干代码更新当前分支</li>
+<li>git config –global alias.sst “status -sb”</li>
+</ul>
+</li>
+</ul>
+</div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2017-06-26</span><i class="fa fa-tag"></i></div></div></div></div><div class="share"><div class="evernote"><a href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank" class="fa fa-bookmark"></a></div><div class="weibo"><a href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));" class="fa fa-weibo"></a></div><div class="twitter"><a href="http://twitter.com/home?status=,https://github.com/taffy0908/2017/06/26/git使用/,Jennifer的半亩三分田,git使用,;" class="fa fa-twitter"></a></div></div><div class="pagination"><ul class="clearfix"><li class="pre pagbuttons"><a role="navigation" href="/2017/06/26/ejs/" title="ejs引擎中将include设置为绝对路径时相对于根目录访问的解决方案" class="btn">上一篇</a></li><li class="next pagbuttons"><a role="navigation" href="/2017/06/26/hello-world/" title="如何使用Hexo创建自己的blog" class="btn">下一篇</a></li></ul></div></div></div></div></div><script src="/js/jquery.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script></body></html>
