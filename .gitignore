@@ -1,29 +1,14 @@
-#eclipse files
-.project
-.settings
-
-#webstorm
-.idea/
-.iml
-*.iml
-*.tmp
-
-#vscode
-.vscode/
-
-# temp files
 .DS_Store
-Thumbs.db
-Desktop.ini
-
-#log files
-.log
-
-#svn
-.svn/*
-
-# Vim swap files
-*.swp
-
 node_modules/
-.sass-cache/
+/dist/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
